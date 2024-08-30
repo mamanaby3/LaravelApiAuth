@@ -22,7 +22,7 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'tel' => ['required', 'string', 'max:15'],
             'role' => ['required', 'string', 'in:medecin,secretaire,patient'],
-            'specialite_id' => ['nullable', 'exists:specialites,id'],
+            'specialite_id' => 'nullable|integer',
             'dateNaissance' => ['nullable', 'date'],
         ]);
 
