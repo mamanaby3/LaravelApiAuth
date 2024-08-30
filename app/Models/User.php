@@ -24,6 +24,15 @@ class User extends Authenticatable
         'tel',
         'role'
     ];
+    public function medecins()
+    {
+        return $this->hasMany(Medecins::class, 'user_id');
+    }
+    public function specialite()
+    {
+        return $this->belongsTo(Specialite::class);
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

@@ -24,10 +24,13 @@ class AuthenticatedSessionController extends Controller
 
         $user = Auth::user();
 
+        // Récupère le rôle de l'utilisateur
+        $role = $user->role;
+
         return response()->json([
             'success' => true,
             'message' => 'Connexion réussie.',
-            'user' => $user,
+            'role' => $role, // Ajoute le rôle à la réponse
             'token' => $user->createToken('API Token')->plainTextToken
         ]);
     }

@@ -10,6 +10,10 @@ class Medecins extends Model
     use HasFactory;
 
     protected $fillable = ['user_id', 'specialite_id'];
+    public function specialite()
+    {
+        return $this->belongsTo(Specialite::class);
+    }
     public function user()
     {
         return $this->belongsTo(User::class);
